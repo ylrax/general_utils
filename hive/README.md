@@ -3,7 +3,8 @@
 
 ## Launch with docker:
 
-From https://github.com/big-data-europe/ download the hive project: docker-hive-master 
+From https://github.com/big-data-europe/ 
+download the hive project: docker-hive-master 
 and launch:
 
 	cd <path>\docker-hive-master
@@ -72,6 +73,7 @@ After downloading and doing god-like instalation. Never works perfectly...
 	# o en pasos:
 	impala-shell
 	connect <impala_server>;
+	
 	show databases;
 	...
 

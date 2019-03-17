@@ -3,9 +3,10 @@
 
 ## Sources:
 
-- Installable:
+ Instalable:
  http://www.enterprisedb.com/products-services-training/pgdownload
-- Portable: https://sourceforge.net/projects/postgresqlportable/
+ Portable:
+ https://sourceforge.net/projects/postgresqlportable/
 
 ## Show databases:
 
@@ -66,6 +67,9 @@
 
 ## Others
 
+	select col1, col2 from test 
+	group by col1,col2 having count(*) >1 and max( CASE col2 WHEN '1' THEN 1 ELSE 0 END ) = 0;
+
 	select case when coalesce(cool2, '') = '' then 'fake' else 'no fake' end from table2;
 	
 
@@ -90,3 +94,4 @@
 	  val2, n
 
 	  select id, cool1, cool2 from (select * from (select row_number() over(partition by id order by id DESC) as num, * from table2) aux where num=1) aux2;
+	  
