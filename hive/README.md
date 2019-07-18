@@ -3,9 +3,8 @@
 
 ## Launch with docker:
 
-From https://github.com/big-data-europe/ 
-download the hive project: docker-hive-master 
-and launch:
+De https://github.com/big-data-europe/ descargar el hive project: docker-hive-master 
+y ejecutar para lanzar:
 
 	cd <path>\docker-hive-master
 	docker-compose up -d
@@ -67,13 +66,13 @@ After downloading and doing god-like instalation. Never works perfectly...
 
 #### Other usages
 
-	impala-shell <impala_server> -q "select * from table" 
+	impala-shell -i <impala_server> -q "select * from table" 
+	impala-shell -i <impala_server> -f path/to/file/query.sql
 
 
 	# o en pasos:
 	impala-shell
 	connect <impala_server>;
-	
 	show databases;
 	...
 
@@ -158,8 +157,11 @@ Muestra información de lo su que se le pida. No requiere de STATS procesadas ni
 
 Para definir o mostrar las variables 'de entorno propias'. Cambia la configuración o la muestra. Hay que mirar todo en detalle ya que algunos entornos como HUE solo lo cambian para la siguiente query.
 
+	-- muestra todas las variables
 	SET;
+	-- establece una variable
 	SET MEM_LIMIT=3g;
+	-- muestra la variable
 	SET MEM_LIMIT;
 
 Se muestran también las creadas por el usuario y pasadas en la llamada:
@@ -170,3 +172,12 @@ Se muestran también las creadas por el usuario y pasadas en la llamada:
 inside hql file:
 
 	${name}
+
+
+## Fechas
+
+
+sELECT to_utc_timestamp ('1971-01-01 00:00:00','CET');
+
+
+sELECT unix_timestamp(to_utc_timestamp ('2018-11-08T16:10:36Z','CET')) - unix_timestamp('2018-11-08 15:10:26');

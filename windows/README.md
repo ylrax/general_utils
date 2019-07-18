@@ -50,6 +50,10 @@ Install both python's (without virtualenvs)
 	Copy, yes, duplicate the python.exe file and rename it as python2/3 acordely
 	Add paths to the user variables
 	
+Install libraries
+    
+    pip install pandas, jupyter, pyspark, numpy
+	
 Install pycharm
 
 	https://www.jetbrains.com/pycharm/download/#section=windows
@@ -63,6 +67,5 @@ Install workbench/postgres
 Para pruebas rápidas el postgres portable: https://sourceforge.net/projects/postgresqlportable/
 Descomprimir en la carpeta deseada y hacer un acceso directo a PostgreSQLPortable.exe
 
-Install 
 
 
