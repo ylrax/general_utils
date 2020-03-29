@@ -1,6 +1,50 @@
 # Interesting batch launch scripts
 
 
+## Execute multiple commands
+
+	echo "Command 1" ; echo "command 2" ; echo "Command 3"
+	echo "Command 1" && echo "command 2"
+	echo "Command 1" || echo "command 2"
+	sleep 5 & echo "command 2"
+
+Legend:
+ -  ;   will launch the next command after the previous one, after it finishes no matter what happend to it
+ -  &&  will launch the next command after the previous one, after it finishes only if that one has suceeded
+ -  ||  will launch the next command after the previous one, after it finishes only if that one has _*not*_ suceeded
+ -  &   will launch the next command after the previous one, without waiting the previous one to finish
+
+
+## Basic execution exit logs:
+
+Try to avoid if---else but:
+
+	sh program.sh;
+
+	result=$?
+	if [ "$result" != 0 ]
+	then
+		echo "Error: ..............."
+		echo "Script exit"
+		exit 1
+	else
+		echo "Script launched correctly"
+		exit 0
+	fi
+
+Best practices:
+
+Bad
+
+	if [ -z "$VARIABLE" ] 
+	then 
+	"$VARIABLE"="blabla"
+	fi
+	
+Replace it with:
+
+	[ -z "$VARIABLE" ] && "$VARIABLE"="blabla"
+	
 ## sed
 
 Do data modification according to some rules and split out in the STOUT
@@ -165,21 +209,3 @@ The Date and Time raw format depends on what you've specified in the Region and 
 
 	for %%i in (%processDates%) do (
 		echo %%i)
-
-
-## Basic execution exit logs:
-
-
-	sh program.sh;
-
-	result=$?
-	if [ "$result" != 0 ]
-	then
-		echo "Error: ..............."
-		echo "Script exit"
-		exit 1
-	else
-		echo "Script launched correctly"
-		exit 0
-	fi
-
