@@ -63,3 +63,37 @@ El & al final libera la terminal en la que estás trabajando y ejecuta el comman
 Para ver lo que está haciendo
 
 	cat nohup.out
+	
+## Cambiar permisos a todas las carpetas:
+
+    # ver que fichero se van a cambiar
+    find . -type d -exec ls -ld {} \;
+    
+    find . -type d -exec chmod 755 {} \;
+    find . -type f -exec chmod 644 {} \;
+
+# Guía para uso de screen
+
+Fuera del screen (en el cluster)
+la configuración sale del .screenrc
+
+    screen -S session_name   # crea una sesión llamada session_name, la mía es xarly
+    screen -ls               # lista de sesiones activas
+    screen -DR               # te mete en la última session
+    screen -r session_name   # te mete en la sesion session_name   
+    dentro del screen:
+    screen -d                # sales de la sesion de screen (pero no borra nada) y vuelves fuera del screen al cluster
+    cntl+a d                 # cierra la ventada activa del screen (y pierdes todo)
+    cntl+a A                 # renombra la ventana activa del screen
+    cntl+a c                 # abre una nueva ventana activa del screen
+    cntl+a 1                 # mueve a la ventada 1 del screen
+    ...
+    cntl+a 9                 # mueve a la ventada 9 del screen
+    cntl+a ESC               # entras en modo copia y puedes hacer scroll hacia arrina con las flechas
+
+Comandos más avanzados
+
+    cntl+a S                 # split horizontal de la ventada del screen
+    cntl+a |                 # split vertical de la ventada del screen
+    cntl+a tab               # cambia region del split de la ventada del screen
+    cntl+a X                 # cierra region de la ventada del screen
