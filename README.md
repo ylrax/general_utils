@@ -1,4 +1,4 @@
-# general_utils
+# general_utils repository
 
 Tips, code, scripts and functions for general purposes
 
@@ -11,3 +11,4 @@ As for now, about:
 - windows stuff
 - Hive
 - Spark
+- Python in data science
